@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Practical Application Activity</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+    h2 { border-bottom: 2px solid #444; padding-bottom: 4px; margin-top: 40px; }
+    figure { margin: 20px 0; }
+    figcaption { font-style: italic; color: #555; }
+    img { max-width: 100%; height: auto; }
+    pre { background: #f4f4f4; padding: 10px; overflow-x: auto; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="main-heading">HTML Practical Application Activity</h1>
+    <p>Images, Hyperlinks, Multimedia, Useful Tags, and the HTML DOM</p>
+    <p><strong>Name:</strong> Briones, Nicholas Daniel</p>
+    <nav>
+      <a href="#images">Images</a> |
+      <a href="#hyperlinks">Hyperlinks</a> |
+      <a href="#multimedia">Multimedia</a> |
+      <a href="#useful-tags">Useful Tags</a> |
+      <a href="#html-dom">HTML DOM</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ 1. IMAGES ============ -->
+    <section id="images">
+      <h2>Images</h2>
+      <p>Below are three images, each with a descriptive alt attribute.</p>
+
+      <!-- Image 1: width set with an attribute -->
+      <img src="images/sunset-mountains.png"
+           alt="Illustration of a large orange sun setting behind dark purple mountains"
+           width="400">
+
+      <!-- Image 2: height and width set with CSS -->
+      <img src="images/night-city.png"
+           alt="Illustration of a city skyline at night with lit-up windows and stars"
+           style="width: 300px; height: auto;">
+
+      <!-- Image 3: wrapped in figure + figcaption -->
+      <figure id="hills-figure">
+        <img src="images/green-hills.png"
+             alt="Illustration of rolling green hills with a single tree under a blue sky"
+             width="400">
+        <figcaption>Figure 1: A peaceful green hillside with one lone tree.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ 2. HYPERLINKS ============ -->
+    <section id="hyperlinks">
+      <h2>Hyperlinks</h2>
+      <ul>
+        <li><strong>Internal link:</strong> <a href="about.html">Go to my About page</a> (another page in this project).</li>
+        <li><strong>External link:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN HTML Documentation</a> (opens in a new tab).</li>
+        <li><strong>Email link:</strong> <a href="mailto:nicholasdaniel.briones@example.com">Send me an email</a></li>
+        <li><strong>Same-page anchor link:</strong> <a href="#html-dom">Jump to the HTML DOM section</a></li>
+      </ul>
+    </section>
+
+    <!-- ============ 3. MULTIMEDIA ============ -->
+    <section id="multimedia">
+      <h2>Multimedia</h2>
+
+      <h3>Audio</h3>
+      <audio controls>
+        <source src="media/sample-tone.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <h3>Video</h3>
+      <video controls width="480">
+        <source src="media/sample-video.mp4" type="video/mp4">
+        Your browser does not support the video element.
+      </video>
+    </section>
+
+    <!-- ============ 4. USEFUL TAGS ============ -->
+    <section id="useful-tags">
+      <h2>Useful Tags</h2>
+
+      <!-- I chose <blockquote> because it is the proper tag for quoting text from another source. -->
+      <blockquote cite="https://developer.mozilla.org/en-US/docs/Web/HTML">
+        HTML is the standard markup language that gives structure to web pages.
+      </blockquote>
+
+      <!-- I chose <abbr> because it shows the full meaning of an abbreviation when you hover over it. -->
+      <p>I am learning <abbr title="HyperText Markup Language">HTML</abbr> and using <abbr title="Cascading Style Sheets">CSS</abbr> for basic styling.</p>
+
+      <!-- I chose <mark> because it highlights the most important text, like a highlighter pen. -->
+      <p>Remember: always add <mark>alt text</mark> to every image.</p>
+
+      <!-- I chose <code> because it displays inline code in a monospace font so it stands out from normal text. -->
+      <p>The tag used to embed an image is <code>&lt;img&gt;</code>.</p>
+
+      <!-- I chose <pre> because it keeps the spacing and line breaks of my code example exactly as typed. -->
+      <pre><code>&lt;a href="https://example.com" target="_blank"&gt;
+  Visit Example
+&lt;/a&gt;</code></pre>
+
+      <!-- I chose the &copy; character entity because it prints the copyright symbol without typing it directly. -->
+      <p>&copy; 2026 Surname, Given Name. All rights reserved.</p>
+    </section>
+
+    <!-- ============ 5. HTML DOM ============ -->
+    <section id="html-dom">
+      <h2>HTML DOM</h2>
+      <p>The DOM (Document Object Model) shows this page as a tree of elements. I gave several elements an <code>id</code> (<code>main-heading</code>, <code>hills-figure</code>, <code>dom-list</code>) so I could find them in DevTools.</p>
+
+      <ul id="dom-list">
+        <li>The <code>html</code> element is the root of the tree.</li>
+        <li>The <code>head</code> and <code>body</code> are its children.</li>
+        <li>Every tag inside <code>body</code> becomes a branch or leaf of the tree.</li>
+      </ul>
+
+      <figure>
+        <img src="dom-tree.png" alt="Screenshot of the browser DevTools Elements panel showing the DOM tree of this page" width="600">
+        <figcaption>Figure 2: DOM tree of this page in the DevTools Elements panel.</figcaption>
+      </figure>
+    </section>
+
+  </main>
+
+  <footer>
+    <p><a href="#main-heading">Back to top</a></p>
+  </footer>
+
+<!--
+DOM parent-child explanation:
+In the Elements panel, the <img> with the hills picture sits inside the <figure> with id="hills-figure", so the <figure> is the parent of the <img> and of the <figcaption>. Those two are siblings because they share the same parent. The <ul> with id="dom-list" is the parent of its three <li> items, which makes each <li> a child of that list. Going up the tree, the <section id="html-dom"> is the parent of the <ul>, and it is a child of <main>, which sits inside <body>. Seeing it this way helped me understand that the whole page is a tree with <html> as the root.
+-->
+
+</body>
+</html>
